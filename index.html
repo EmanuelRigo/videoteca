@@ -27,11 +27,13 @@
             id="passwordInput"
             placeholder="password"
           />
-          <input type="submit" class="button" value="Entrar!" id="submit" />
-          <div class="form__check">
-            <label for="rememberme">Recuerdame</label>
-            <input type="checkbox" name="rememberme" id="rememberme" />
-          </div>
+          <button class="button button--send">
+            <span>Log In</span>
+            <div class="form__check">
+              <label for="rememberme">Recuerdame</label>
+              <input type="checkbox" name="rememberme" id="rememberme" />
+            </div>
+          </button>
         </form>
         <button class="button" id="register">
           <p>registrarme</p>
@@ -39,7 +41,7 @@
         </button>
       </div>
 
-      <div class="container disabled" id="registerContainer">
+      <div class="container__login disabled" id="registerContainer">
         <p>Ingresa tus datos</p>
         <form name="form" class="form">
           <input
@@ -70,5 +72,7 @@
         </button>
       </div>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
