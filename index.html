@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Videoteca</title>
   </head>
   <body>
     <div class="container" id="container">
-      <div class="container__login" id="container__login">
+      <div class="container__name">
         <h2>My Movie V2.0</h2>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+      </div>
+      <div class="container__login" id="container__login">
         <form name="form" class="form">
           <input
             type="text"
@@ -24,10 +27,47 @@
             id="passwordInput"
             placeholder="password"
           />
-          <a href="#" class="button" id="buttonLogin">
-            <span>Entrar</span>
-          </a>
+          <input type="submit" class="button" value="Entrar!" id="submit" />
+          <div class="form__check">
+            <label for="rememberme">Recuerdame</label>
+            <input type="checkbox" name="rememberme" id="rememberme" />
+          </div>
         </form>
+        <button class="button" id="register">
+          <p>registrarme</p>
+          <p>icono</p>
+        </button>
+      </div>
+
+      <div class="container disabled" id="registerContainer">
+        <p>Ingresa tus datos</p>
+        <form name="form" class="form">
+          <input
+            type="text"
+            class="form__input"
+            id="registerName"
+            placeholder="Ingresa tu Alias"
+          />
+          <input
+            type="email"
+            class="form__input"
+            id="registerMail"
+            placeholder="Ingresa tu mail"
+          />
+          <input
+            type="password"
+            class="form__input"
+            id="registerPassword"
+            placeholder="Ingresa tu contraseña"
+          />
+        </form>
+        <button class="button" id="send">
+          <p>enviar</p>
+          <p>icono</p>
+        </button>
+        <button class="button" id="cancel">
+          <p>icono</p>
+        </button>
       </div>
     </div>
   </body>
