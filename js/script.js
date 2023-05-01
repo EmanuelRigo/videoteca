@@ -20,13 +20,25 @@ const registerButton = document.getElementById("register");
 const usernameInput = document.getElementById("usernameInput");
 const passwordInput = document.getElementById("passwordInput");
 const btnLogin = document.getElementById("btnLogin");
+const rememberMe = document.getElementById("rememberme");
+const containerLogin = document.getElementById("containerLogin");
+const registerContainer = document.getElementById("containerRegister");
+const cancelRegister = document.getElementById("cancelRegister");
+const select = document.getElementById("container2Select");
+const logOut = document.getElementById("logOut");
 
 registerButton.addEventListener("click", () => {
-  alert("hola " + usernameInput.value);
+  containerLogin.classList.toggle("disabled");
+  registerContainer.classList.toggle("disabled");
+});
+
+cancelRegister.addEventListener("click", () => {
+  containerLogin.classList.toggle("disabled");
+  registerContainer.classList.toggle("disabled");
 });
 
 function validarUsuario(usersDB, user, pass) {
-  let encontrado = usersDB.find((userDB) => usersDB.mail == user);
+  let encontrado = usersDB.find((usersDB) => usersDB.mail == user);
 
   if (typeof encontrado === "undefined") {
     return false;
@@ -48,3 +60,33 @@ function guardarDatos(usuarioDB, storage) {
 
   storage.setItem("usuario", JSON.stringify(usuraio));
 }
+
+btnLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (!usernameInput.value || !passwordInput.value) {
+    alert("todos los campos son requeridos");
+  } else {
+    let data = validarUsuario(
+      usuarios,
+      usernameInput.value,
+      passwordInput.value
+    );
+
+    if (!data) {
+      alert("usuario o contraseña erróneos");
+    } else {
+      if (rememberMe.checked) {
+        guardarDatos(data, localStorage);
+        alert("hoolaa");
+      } else {
+        guardarDatos(data, sessionStorage);
+        alert("holaaaa");
+      }
+    }
+  }
+});
+
+logOut.addEventListener("click", () => {
+  alert(select.value);
+});

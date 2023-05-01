@@ -8,69 +8,109 @@
     <title>Videoteca</title>
   </head>
   <body>
-    <div class="container" id="container">
-      <div class="container__name">
-        <h2>My Movie V2.0</h2>
-        <p>Lorem ipsum dolor sit.</p>
-      </div>
-      <div class="container__login" id="container__login">
-        <form name="form" class="form">
-          <input
-            type="text"
-            class="form__input"
-            id="usernameInput"
-            placeholder="username"
-          />
-          <input
-            type="password"
-            class="form__input"
-            id="passwordInput"
-            placeholder="password"
-          />
-          <button class="button button--send">
-            <span>Log In</span>
-            <div class="form__check">
-              <label for="rememberme">Recuerdame</label>
-              <input type="checkbox" name="rememberme" id="rememberme" />
-            </div>
+    <div class="container1 disabled">
+      <div class="container" id="container">
+        <div class="container__name">
+          <h2>My Movie V2.0</h2>
+          <p>Lorem ipsum dolor sit.</p>
+        </div>
+        <div class="container__login" id="containerLogin">
+          <form name="form" class="form">
+            <input
+              type="text"
+              class="form__input"
+              id="usernameInput"
+              placeholder="username"
+            />
+            <input
+              type="password"
+              class="form__input"
+              id="passwordInput"
+              placeholder="password"
+            />
+            <button class="button button--send" id="btnLogin">
+              <span>Log In</span>
+              <div class="form__check">
+                <label for="rememberme">Recuerdame</label>
+                <input type="checkbox" name="rememberme" id="rememberme" />
+              </div>
+            </button>
+          </form>
+          <button class="button" id="register">
+            <p>registrarme</p>
+            <p>icono</p>
           </button>
-        </form>
-        <button class="button" id="register">
-          <p>registrarme</p>
-          <p>icono</p>
-        </button>
+        </div>
+
+        <div class="container__login disabled" id="containerRegister">
+          <p>Ingresa tus datos</p>
+          <form name="form" class="form">
+            <input
+              type="text"
+              class="form__input"
+              id="registerName"
+              placeholder="Ingresa tu Alias"
+            />
+            <input
+              type="email"
+              class="form__input"
+              id="registerMail"
+              placeholder="Ingresa tu mail"
+            />
+            <input
+              type="password"
+              class="form__input"
+              id="registerPassword"
+              placeholder="Ingresa tu contraseña"
+            />
+          </form>
+          <button class="button" id="send">
+            <p>enviar</p>
+            <p>icono</p>
+          </button>
+          <button class="button" id="cancelRegister">
+            <p>icono</p>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container2">
+      <div class="container2__aside">
+        <aside class="aside">
+          <h3 class="container2__h3">Icono</h3>
+
+          <select class="container2__select" name="" id="container2Select">
+            <option value="year">Año</option>
+            <option value="az">A-Z</option>
+          </select>
+
+          <button id="logOut">
+            <p class="container2__select">log out</p>
+          </button>
+        </aside>
       </div>
 
-      <div class="container__login disabled" id="registerContainer">
-        <p>Ingresa tus datos</p>
-        <form name="form" class="form">
-          <input
-            type="text"
-            class="form__input"
-            id="registerName"
-            placeholder="Ingresa tu Alias"
-          />
-          <input
-            type="email"
-            class="form__input"
-            id="registerMail"
-            placeholder="Ingresa tu mail"
-          />
-          <input
-            type="password"
-            class="form__input"
-            id="registerPassword"
-            placeholder="Ingresa tu contraseña"
-          />
-        </form>
-        <button class="button" id="send">
-          <p>enviar</p>
-          <p>icono</p>
-        </button>
-        <button class="button" id="cancel">
-          <p>icono</p>
-        </button>
+      <div class="container2__main">
+        <main class="main">
+          <div class="gridContainer">
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+            <div class="container2__card"></div>
+          </div>
+        </main>
       </div>
+
+      <main></main>
     </div>
 
     <script src="js/script.js"></script>
