@@ -50,10 +50,6 @@ body {
   font-size: 25px;
 }
 
-.disabled {
-  display: none;
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -118,13 +114,17 @@ body {
 .aside {
   height: 100%;
   width: 100%;
-  background-color: gold;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   border-radius: 5px;
   margin-bottom: 2;
+  background-color: gold;
+}
+
+.gray--aside {
+  background-color: gray;
 }
 
 .container2__main {
@@ -147,19 +147,68 @@ body {
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 270px);
-  grid-auto-rows: 400px;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-auto-rows: 340px;
   gap: 20px;
   width: 100%;
   box-sizing: border-box;
   justify-content: space-evenly;
+  align-items: center;
 }
 
-.container2__card {
-  width: 270px;
-  height: 400px;
-  border-radius: 4px;
-  background-color: #ccc;
+.card {
+  height: 340px;
+  width: 250px;
+  overflow: hidden;
+  border: 3px solid gold;
+}
+
+.gray--card {
+  border: 3px solid gray;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card__intro {
+  height: 150px;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  position: relative;
+  top: -95px;
+  background-color: gold;
+  color: black;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transform: skew(0, -20deg);
+}
+
+.card:hover .card__intro {
+  height: 250px;
+  top: -250px;
+  background-color: #111;
+  color: white;
+}
+
+.card__img {
+  object-fit: cover;
+  width: 100%;
+  height: 340px;
+  transition: 0.5s;
+}
+
+.card__p {
+  display: none;
+}
+
+.card:hover .card__p {
+  display: initial;
+}
+
+.card:hover .card__img {
+  transform: scale(1.4);
 }
 
 .container2__h3 {
@@ -176,4 +225,35 @@ body {
   color: whitesmoke;
   font-size: 20px;
   box-sizing: border-box;
+}
+
+.container2__settings {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(22, 22, 22, 0.4);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings {
+  width: 700px;
+  height: 700px;
+  background: #444;
+  z-index: 500;
+  border-radius: 4px;
+}
+
+.settings_colors {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.disabled {
+  display: none;
 }

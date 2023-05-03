@@ -14,6 +14,11 @@ const usuarios = [
     mail: "lopezcarlosadrian@mail.com",
     pass: "sanlore2002",
   },
+  {
+    nombre: "Ema",
+    mail: "emanuel@mail.com",
+    pass: "hola1234",
+  },
 ];
 
 const registerButton = document.getElementById("register");
@@ -26,15 +31,26 @@ const registerContainer = document.getElementById("containerRegister");
 const cancelRegister = document.getElementById("cancelRegister");
 const select = document.getElementById("container2Select");
 const logOut = document.getElementById("logOut");
+const container1 = document.getElementById("container1");
+const container2 = document.getElementById("container2");
+const btnSettings = document.getElementById("btnSettings");
+const container2Settings = document.getElementById("container2Settings");
+
+function cambiarEstado(active, disabled) {
+  active.classList.toggle("disabled");
+  disabled.classList.toggle("disabled");
+}
 
 registerButton.addEventListener("click", () => {
-  containerLogin.classList.toggle("disabled");
-  registerContainer.classList.toggle("disabled");
+  cambiarEstado(containerLogin, registerContainer);
 });
 
 cancelRegister.addEventListener("click", () => {
-  containerLogin.classList.toggle("disabled");
-  registerContainer.classList.toggle("disabled");
+  cambiarEstado(containerLogin, registerContainer);
+});
+
+btnSettings.addEventListener("click", () => {
+  container2Settings.classList.toggle("disabled");
 });
 
 function validarUsuario(usersDB, user, pass) {
@@ -78,9 +94,11 @@ btnLogin.addEventListener("click", (e) => {
     } else {
       if (rememberMe.checked) {
         guardarDatos(data, localStorage);
+        cambiarEstado(container1, container2);
         alert("hoolaa");
       } else {
         guardarDatos(data, sessionStorage);
+        cambiarEstado(container1, container2);
         alert("holaaaa");
       }
     }

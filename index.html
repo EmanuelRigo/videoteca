@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link rel="stylesheet" href="css/style.css" />
+
     <title>Videoteca</title>
   </head>
   <body>
-    <div class="container1 disabled">
+    <div id="container1" class="container1 disabled">
       <div class="container" id="container">
         <div class="container__name">
           <h2>My Movie V2.0</h2>
@@ -30,11 +35,11 @@
             />
             <button class="button button--send" id="btnLogin">
               <span>Log In</span>
-              <div class="form__check">
-                <label for="rememberme">Recuerdame</label>
-                <input type="checkbox" name="rememberme" id="rememberme" />
-              </div>
             </button>
+            <div class="form__check">
+              <label for="rememberme">Recuerdame</label>
+              <input type="checkbox" name="rememberme" id="rememberme" />
+            </div>
           </form>
           <button class="button" id="register">
             <p>registrarme</p>
@@ -74,10 +79,20 @@
         </div>
       </div>
     </div>
-    <div class="container2">
+
+    <div id="container2" class="container2">
+      <div id="container2Settings" class="container2__settings disabled">
+        <div class="settings">
+          <span class="material-symbols-outlined"> close </span>
+          <p>Elije un color</p>
+          <div class="settings_colors" value="red"></div>
+        </div>
+      </div>
+
       <div class="container2__aside">
-        <aside class="aside">
+        <aside id="aside" class="aside">
           <h3 class="container2__h3">Icono</h3>
+          <a id="btnSettings" class="material-symbols-outlined">settings</a>
 
           <select class="container2__select" name="" id="container2Select">
             <option value="year">Año</option>
@@ -93,19 +108,93 @@
       <div class="container2__main">
         <main class="main">
           <div class="gridContainer">
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
-            <div class="container2__card"></div>
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">batman el caballero de la noche</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">akira</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">akira</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">akira</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">akira</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">akira</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">akira</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">akira</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img class="card__img" src="imagenes/akira.jpg" alt="" />
+              <div class="card__intro">
+                <h1 class="card__h1">akira</h1>
+                <p class="card__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
           </div>
         </main>
       </div>
