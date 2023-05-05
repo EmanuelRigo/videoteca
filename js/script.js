@@ -35,6 +35,7 @@ const container1 = document.getElementById("container1");
 const container2 = document.getElementById("container2");
 const btnSettings = document.getElementById("btnSettings");
 const container2Settings = document.getElementById("container2Settings");
+const aside = document.getElementById("aside");
 
 function cambiarEstado(active, disabled) {
   active.classList.toggle("disabled");
@@ -94,17 +95,41 @@ btnLogin.addEventListener("click", (e) => {
     } else {
       if (rememberMe.checked) {
         guardarDatos(data, localStorage);
-        cambiarEstado(container1, container2);
         alert("hoolaa");
+        cambiarEstado(container1, container2);
       } else {
         guardarDatos(data, sessionStorage);
-        cambiarEstado(container1, container2);
         alert("holaaaa");
+        cambiarEstado(container1, container2);
       }
     }
   }
 });
 
+function recuperarUsuario(storage) {
+  let usuarioStorage = JSON.parse(storage.getItem("usuario"));
+  return usuarioStorage;
+}
+
+function estaLogueado(usuario) {
+  if (usuario) {
+    cambiarEstado(container1, container2);
+  }
+}
+
+function borrarDatos() {
+  localStorage.clear();
+  sessionStorage.clear();
+}
+
+function saludar() {
+  aside.innerHTML = "<h3>Buenas dias</h3>";
+}
+
 logOut.addEventListener("click", () => {
-  alert(select.value);
+  borrarDatos();
+  alert("se han borrado los datos");
+  cambiarEstado(container1, container2);
 });
+
+window.onload = () => estaLogueado(recuperarUsuario(localStorage));
