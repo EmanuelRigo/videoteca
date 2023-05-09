@@ -1,26 +1,3 @@
-const usuarios = [
-  {
-    nombre: "Azul",
-    mail: "azulperez@mail.com",
-    pass: "azulcomoelmarazul",
-  },
-  {
-    nombre: "Betiana",
-    mail: "betidicarlo@mail.com",
-    pass: "sha23AWx!",
-  },
-  {
-    nombre: "Carlos",
-    mail: "lopezcarlosadrian@mail.com",
-    pass: "sanlore2002",
-  },
-  {
-    nombre: "Ema",
-    mail: "emanuel@mail.com",
-    pass: "hola1234",
-  },
-];
-
 const peliculas = [
   {
     nombre: "jurassic park 3",
@@ -228,8 +205,14 @@ const passwordInput = document.getElementById("passwordInput");
 const btnLogin = document.getElementById("btnLogin");
 const rememberMe = document.getElementById("rememberme");
 const containerLogin = document.getElementById("containerLogin");
+
 const registerContainer = document.getElementById("containerRegister");
+const registerName = document.getElementById("registerName");
+const registerSurname = document.getElementById("registerSurname");
+const registerMail = document.getElementById("registerMail");
+const registerPassword = document.getElementById("registerPassword");
 const cancelRegister = document.getElementById("cancelRegister");
+
 const select = document.getElementById("container2Select");
 const logOut = document.getElementById("logOut");
 const container1 = document.getElementById("container1");
@@ -256,13 +239,39 @@ btnSettings.addEventListener("click", () => {
   container2Settings.classList.toggle("disabled");
 });
 
+class Usuario {
+  constructor(nombre, apellido, email, password) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.email = email;
+    this.password = password;
+  }
+}
+
+let usuariosDB = [];
+
+async function traerDatos() {
+  const response = await fetch("./js/datosUsuarios.json");
+  usuariosDB = await response.json();
+}
+
+traerDatos();
+
+const pedirDatos = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(usuariosDB);
+    }, 50);
+  });
+};
+
 function validarUsuario(usersDB, user, pass) {
-  let encontrado = usersDB.find((usersDB) => usersDB.mail == user);
+  let encontrado = usersDB.find((usersDB) => usersDB.email == user);
 
   if (typeof encontrado === "undefined") {
     return false;
   } else {
-    if (encontrado.pass != pass) {
+    if (encontrado.password != pass) {
       return false;
     } else {
       return encontrado;
@@ -271,13 +280,14 @@ function validarUsuario(usersDB, user, pass) {
 }
 
 function guardarDatos(usuarioDB, storage) {
-  const usuraio = {
+  const usuario = {
     name: usuarioDB.nombre,
-    user: usuarioDB.mail,
-    pass: usuarioDB.pass,
+    surname: usuarioDB.apellido,
+    user: usuarioDB.email,
+    password: usuarioDB.password,
   };
 
-  storage.setItem("usuario", JSON.stringify(usuraio));
+  storage.setItem("usuario", JSON.stringify(usuario));
 }
 
 btnLogin.addEventListener("click", (e) => {
@@ -287,7 +297,7 @@ btnLogin.addEventListener("click", (e) => {
     alert("todos los campos son requeridos");
   } else {
     let data = validarUsuario(
-      usuarios,
+      usuariosDB,
       usernameInput.value,
       passwordInput.value
     );
@@ -334,8 +344,10 @@ logOut.addEventListener("click", () => {
   cambiarEstado(container1, container2);
 });
 
+async function traerPeliculas() {}
+
 function portadasGrid(array, container) {
-  container.innerHTML = "<h3>hola</h3>";
+  container.innerHTML = "";
   for (item of array) {
     let tarjeta = document.createElement("div");
     tarjeta.className = "card";
@@ -349,5 +361,7 @@ function portadasGrid(array, container) {
 }
 
 portadasGrid(peliculas, gridContainer);
+
+select.addEventListener("change", () => alert(select.value));
 
 window.onload = () => estaLogueado(recuperarUsuario(localStorage));

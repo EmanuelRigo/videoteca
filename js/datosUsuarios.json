@@ -1,0 +1,26 @@
+[{
+    "nombre":"Pedro",
+    "apellido":"perez",
+    "email":"pedro-perez@hotmail.com",
+    "password":"123456"
+},{
+    "nombre":"Emanuel",
+    "apellido":"Rigo",
+    "email":"emanuel-rigo@live.com",
+    "password":"hola123456"
+},{
+    "nombre":"maira",
+    "apellido":"lopez",
+    "email":"maira@hotmail.com",
+    "password":"8787"
+},{
+    "nombre":"pola",
+    "apellido":"poliñus",
+    "email":"polaa@hotmail.com",
+    "password":"2525"
+},{
+    "nombre":"boris",
+    "apellido":"poliñus",
+    "email":"boriselmejor@hotmail.com",
+    "password":"654321"
+}]

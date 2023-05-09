@@ -118,7 +118,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-radius: 5px;
+  border-radius: 3px;
   margin-bottom: 2;
   background-color: gold;
   overflow: hidden;
@@ -128,10 +128,9 @@ body {
   width: 100%;
   height: 100px;
   background-color: black;
-  transform: skew(0, -45deg);
+  transform: skew(0, -20deg);
   position: relative;
-  top: 85px;
-  left: 85px;
+  top: 135px;
   padding: 75px 0 0 90px;
   transition: 0.5s;
 }
@@ -146,8 +145,7 @@ body {
 }
 
 .logOut:hover {
-  top: 65px;
-  left: 50px;
+  top: 55px;
 }
 
 .logOut:hover .logOut__btn {
