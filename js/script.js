@@ -21,6 +21,7 @@ const container2Settings = document.getElementById("container2Settings");
 const aside = document.getElementById("aside");
 const gridContainer = document.getElementById("gridContainer");
 const lookFor = document.querySelectorAll(".buscar");
+const saludo = document.getElementById("titulo");
 
 function cambiarEstado(active, disabled) {
   active.classList.toggle("disabled");
@@ -107,12 +108,12 @@ btnLogin.addEventListener("click", (e) => {
     } else {
       if (rememberMe.checked) {
         guardarDatos(data, localStorage);
-        alert("hoolaa");
         cambiarEstado(container1, container2);
+        saludar(recuperarUsuario(localStorage));
       } else {
         guardarDatos(data, sessionStorage);
-        alert("holaaaa");
         cambiarEstado(container1, container2);
+        saludar(recuperarUsuario(sessionStorage));
       }
     }
   }
@@ -126,6 +127,7 @@ function recuperarUsuario(storage) {
 function estaLogueado(usuario) {
   if (usuario) {
     cambiarEstado(container1, container2);
+    saludar(recuperarUsuario(localStorage));
   }
 }
 
@@ -134,8 +136,8 @@ function borrarDatos() {
   sessionStorage.clear();
 }
 
-function saludar() {
-  aside.innerHTML = "<h3>Buenas dias</h3>";
+function saludar(usuario) {
+  saludo.innerHTML = usuario.name;
 }
 
 logOut.addEventListener("click", () => {
@@ -150,12 +152,9 @@ async function traerPeliculas() {
   const response = await fetch("./js/datosPeliculas.json");
   listaPeliculas = await response.json();
   portadasGrid(listaPeliculas, gridContainer);
-  alert("se cargaron");
 }
 
 traerPeliculas();
-
-console.log(listaPeliculas);
 
 function portadasGrid(array, container) {
   container.innerHTML = "";
@@ -185,6 +184,18 @@ lookFor.forEach((input) => {
   });
 });
 
-select.addEventListener("change", () => alert(select.value));
+/////////Funcion para ordernar/////////
+select.addEventListener("change", () => ordenar());
+
+function ordenar() {
+  let listaOrdenada = listaPeliculas.slice(0);
+  if (select.value == "az") {
+    let az = listaOrdenada.sort((a, b) => a.nombre.localeCompare(b.nombre));
+    portadasGrid(listaOrdenada, gridContainer);
+  } else if (select.value == "year") {
+    let year = listaOrdenada.sort((a, b) => a.fecha - b.fecha);
+    portadasGrid(listaOrdenada, gridContainer);
+  }
+}
 
 window.onload = () => estaLogueado(recuperarUsuario(localStorage));

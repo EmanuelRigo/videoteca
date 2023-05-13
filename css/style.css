@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #111;
+  background-color: #181818;
   font-family: "Raleway", sans-serif;
 }
 
@@ -124,6 +124,24 @@ body {
   overflow: hidden;
 }
 
+.aside__avatar {
+  height: 300px;
+  width: 100%;
+  background-color: black;
+  transform: skew(0, 160deg);
+  position: relative;
+  top: -44px;
+  overflow: hidden;
+}
+
+.aside__image {
+  width: 100%;
+  height: 200px;
+  transform: skew(0, -160deg);
+  position: relative;
+  top: 30px;
+}
+
 .logOut {
   width: 100%;
   height: 100px;
@@ -141,7 +159,6 @@ body {
   display: none;
   transition: 0.5s;
   cursor: pointer;
-  transform: skew(0, 45deg);
 }
 
 .logOut:hover {
@@ -169,6 +186,13 @@ body {
   padding: 20px;
   box-sizing: border-box;
   margin-left: 270px;
+}
+
+.container2__h3 {
+  color: gold;
+  font-size: 40px;
+  margin: 30px 10px 0 10px;
+  top: 10px;
 }
 
 .container2__main main {
@@ -245,10 +269,6 @@ body {
 
 .card:hover .card__img {
   transform: scale(1.4);
-}
-
-.container2__h3 {
-  margin: 30px;
 }
 
 .container2__select {
