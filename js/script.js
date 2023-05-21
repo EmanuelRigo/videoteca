@@ -11,6 +11,9 @@ const registerSurname = document.getElementById("registerSurname");
 const registerMail = document.getElementById("registerMail");
 const registerPassword = document.getElementById("registerPassword");
 const cancelRegister = document.getElementById("cancelRegister");
+const userAvatar = document.getElementById("avatar");
+const registerAvatar = document.querySelectorAll(".avatar--img");
+const send = document.getElementById("send");
 
 const select = document.getElementById("container2Select");
 const logOut = document.getElementById("logOut");
@@ -22,12 +25,15 @@ const aside = document.getElementById("aside");
 const gridContainer = document.getElementById("gridContainer");
 const lookFor = document.querySelectorAll(".buscar");
 const saludo = document.getElementById("titulo");
-const userAvatar = document.getElementById("avatar");
-const avatarimg = document.querySelectorAll(".avatar--img");
 
-avatarimg.forEach((elemento) => {
+let valorAvatar = null;
+
+registerAvatar.forEach((elemento) => {
   elemento.addEventListener("click", () => {
     console.log(elemento.id);
+    valorAvatar = elemento.id;
+    console.log(valorAvatar);
+    return valorAvatar;
   });
 });
 
@@ -49,11 +55,12 @@ btnSettings.addEventListener("click", () => {
 });
 
 class Usuario {
-  constructor(nombre, apellido, email, password) {
+  constructor(nombre, apellido, email, password, avatar) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.email = email;
     this.password = password;
+    this.avatar = avatar;
   }
 }
 
@@ -73,6 +80,33 @@ const pedirDatos = () => {
     }, 50);
   });
 };
+
+function sumarUsuarios() {
+  usuariosDB.push(
+    new Usuario(
+      registerName.value,
+      registerSurname.value,
+      registerMail.value,
+      registerPassword.value,
+      valorAvatar
+    )
+  );
+}
+
+send.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    !registerName.value ||
+    !registerSurname.value ||
+    !registerMail.value ||
+    !registerPassword ||
+    valorAvatar == null
+  ) {
+    alert("llene todos los campos");
+  } else {
+    sumarUsuarios();
+  }
+});
 
 function validarUsuario(usersDB, user, pass) {
   let encontrado = usersDB.find((usersDB) => usersDB.email == user);
