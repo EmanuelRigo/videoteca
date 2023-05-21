@@ -2,25 +2,30 @@
     "nombre":"Pedro",
     "apellido":"perez",
     "email":"pedro-perez@hotmail.com",
-    "password":"123456"
+    "password":"123456",
+    "avatar":"cards"
 },{
     "nombre":"Emanuel",
     "apellido":"Rigo",
     "email":"emanuel-rigo@live.com",
-    "password":"hola123456"
+    "password":"hola123456",
+    "avatar":"bat"
 },{
     "nombre":"maira",
     "apellido":"lopez",
     "email":"maira@hotmail.com",
-    "password":"8787"
+    "password":"8787",
+    "avatar":"cat"
 },{
     "nombre":"pola",
     "apellido":"poliñus",
     "email":"polaa@hotmail.com",
-    "password":"2525"
+    "password":"2525",
+    "avatar":"heart"
 },{
     "nombre":"boris",
     "apellido":"poliñus",
     "email":"boriselmejor@hotmail.com",
-    "password":"654321"
+    "password":"654321",
+    "avatar":"bat"
 }]

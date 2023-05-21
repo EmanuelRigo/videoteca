@@ -22,6 +22,14 @@ const aside = document.getElementById("aside");
 const gridContainer = document.getElementById("gridContainer");
 const lookFor = document.querySelectorAll(".buscar");
 const saludo = document.getElementById("titulo");
+const userAvatar = document.getElementById("avatar");
+const avatarimg = document.querySelectorAll(".avatar--img");
+
+avatarimg.forEach((elemento) => {
+  elemento.addEventListener("click", () => {
+    console.log(elemento.id);
+  });
+});
 
 function cambiarEstado(active, disabled) {
   active.classList.toggle("disabled");
@@ -86,6 +94,7 @@ function guardarDatos(usuarioDB, storage) {
     surname: usuarioDB.apellido,
     user: usuarioDB.email,
     password: usuarioDB.password,
+    avatar: usuarioDB.avatar,
   };
 
   storage.setItem("usuario", JSON.stringify(usuario));
@@ -138,6 +147,7 @@ function borrarDatos() {
 
 function saludar(usuario) {
   saludo.innerHTML = usuario.name;
+  userAvatar.src = `avatars/${usuario.avatar}.png`;
 }
 
 logOut.addEventListener("click", () => {
