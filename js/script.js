@@ -26,14 +26,14 @@ const gridContainer = document.getElementById("gridContainer");
 const lookFor = document.querySelectorAll(".buscar");
 const saludo = document.getElementById("titulo");
 
+let cards = [];
+
 let valorAvatar = null;
 
 registerAvatar.forEach((elemento) => {
   elemento.addEventListener("click", () => {
-    console.log(elemento.id);
     valorAvatar = elemento.id;
-    console.log(valorAvatar);
-    return valorAvatar;
+    elemento.classList.toggle("avatar--img--selected");
   });
 });
 
@@ -196,6 +196,22 @@ async function traerPeliculas() {
   const response = await fetch("./js/datosPeliculas.json");
   listaPeliculas = await response.json();
   portadasGrid(listaPeliculas, gridContainer);
+  cards = document.querySelectorAll(".card");
+  console.log(cards);
+  cards.forEach((tarjeta) => {
+    tarjeta.addEventListener("click", () => {
+      console.log(`hola ${tarjeta.name}`);
+      container2.innerHTML += `<div class="absolute">
+  <div class="inAbsolute"> <h3>hola ${tarjeta.src}</h3>
+  <img src="${tarjeta.src}" alt=""></div></div>`;
+    });
+  });
+}
+
+function descripcionPeliculas() {}
+
+function hola() {
+  console.log(`hola`);
 }
 
 traerPeliculas();
@@ -205,6 +221,8 @@ function portadasGrid(array, container) {
   for (item of array) {
     let tarjeta = document.createElement("div");
     tarjeta.className = "card";
+    tarjeta.name = item.nombre;
+    tarjeta.src = item.portada;
     tarjeta.innerHTML = `<img class="card__img" src="${item.portada}" alt="" />
     <div class="card__intro">
     <h3 class="card__h1">${item.nombre}</h3>
