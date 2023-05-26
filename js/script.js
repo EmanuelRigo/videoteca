@@ -26,6 +26,8 @@ const gridContainer = document.getElementById("gridContainer");
 const lookFor = document.querySelectorAll(".buscar");
 const saludo = document.getElementById("titulo");
 
+const absolute = document.getElementById("absolute");
+
 let cards = [];
 
 let valorAvatar = null;
@@ -196,16 +198,6 @@ async function traerPeliculas() {
   const response = await fetch("./js/datosPeliculas.json");
   listaPeliculas = await response.json();
   portadasGrid(listaPeliculas, gridContainer);
-  cards = document.querySelectorAll(".card");
-  console.log(cards);
-  cards.forEach((tarjeta) => {
-    tarjeta.addEventListener("click", () => {
-      console.log(`hola ${tarjeta.name}`);
-      container2.innerHTML += `<div class="absolute">
-  <div class="inAbsolute"> <h3>hola ${tarjeta.src}</h3>
-  <img src="${tarjeta.src}" alt=""></div></div>`;
-    });
-  });
 }
 
 function descripcionPeliculas() {}
@@ -219,10 +211,11 @@ traerPeliculas();
 function portadasGrid(array, container) {
   container.innerHTML = "";
   for (item of array) {
-    let tarjeta = document.createElement("div");
+    var tarjeta = document.createElement("div");
     tarjeta.className = "card";
     tarjeta.name = item.nombre;
     tarjeta.src = item.portada;
+    tarjeta.id = item.portada;
     tarjeta.innerHTML = `<img class="card__img" src="${item.portada}" alt="" />
     <div class="card__intro">
     <h3 class="card__h1">${item.nombre}</h3>
@@ -230,6 +223,62 @@ function portadasGrid(array, container) {
     </div>`;
     container.append(tarjeta);
   }
+  const cards = document.querySelectorAll(".card");
+  const cardsArray = Array.apply(null, cards);
+  console.log(cardsArray);
+
+  for (const item of cards) {
+    item.addEventListener("click", () => {
+      console.log(item.id);
+      let poster = item.id;
+      console.log(poster);
+      let infoTarjeta = listaPeliculas.find(
+        (elemento) => elemento.portada == poster
+      );
+
+      container2.innerHTML += `<div id="absolute" class="absolute">
+      <div class="inAbsolute">
+        <img class="absolute__image" src="${infoTarjeta.portada}" alt="" />
+        <div class="inAbsolute2">
+          <h3 class="absoluter__h3">${infoTarjeta.nombre}</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
+            maxime quaerat cupiditate tenetur culpa iusto repellat unde odit.
+            Omnis sequi reiciendis fuga placeat, pariatur odio quae nesciunt
+            optio sint cumque!
+          </p>
+        </div>
+      </div>
+    </div>`;
+      console.log(infoTarjeta);
+      const absolute = document.getElementById("absolute");
+      absolute.addEventListener("click", () => {
+        alert("hola");
+      });
+    });
+  }
+
+  /*;*/
+
+  /*cards.forEach((tarjeta) => {
+    tarjeta.addEventListener("click", () => {
+      console.log(`hola ${tarjeta.name}`);
+      container2.innerHTML += `<div id="absolute" class="absolute">
+      <div class="inAbsolute">
+        <img class="absolute__image" src="${item.portada}" alt="" />
+        <div class="inAbsolute2">
+          <h3 class="absoluter__h3">${item.nombre}</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
+            maxime quaerat cupiditate tenetur culpa iusto repellat unde odit.
+            Omnis sequi reiciendis fuga placeat, pariatur odio quae nesciunt
+            optio sint cumque!
+          </p>
+        </div>
+      </div>
+    </div>`;
+    });
+  });*/
 }
 
 /////////Funcion para buscar/////////

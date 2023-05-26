@@ -372,12 +372,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: whitesmoke;
 }
 
 .inAbsolute {
-  width: 700px;
-  height: 300px;
-  background-color: #444;
+  width: 1000px;
+  height: 500px;
+  background-color: #222;
+  display: flex;
+  flex-direction: row;
+}
+
+.absolute__image {
+  width: 500px;
+  object-fit: cover;
+}
+
+.inAbsolute2 {
+  padding: 20px;
+}
+
+.inAbsolute2 h3 {
+  padding: 0 0 15px 15px;
 }
 
 .disabled {
