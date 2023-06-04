@@ -6,13 +6,22 @@
 }
 
 body {
-  background-color: #181818;
   font-family: "Raleway", sans-serif;
+}
+
+.secondBody {
+  background-color: #181818;
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
 }
 
 .container {
   width: 700px;
-  height: 800px;
+  height: 890px;
   background-color: black;
   color: white;
   margin: 0 auto;
@@ -26,7 +35,6 @@ body {
 
 .container__login {
   width: 100%;
-  padding: 30px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -83,6 +91,20 @@ body {
   margin: 5px;
 }
 
+.cancelsend {
+  width: 506px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.button--cancelSend {
+  width: 240px;
+  margin: 3px;
+}
+
 .button:hover {
   background-color: #333;
 }
@@ -95,6 +117,7 @@ body {
   font-size: 20px;
   width: 500px;
   box-sizing: border-box;
+  margin: 5px;
 }
 
 .container__avatars1 h3 {
@@ -153,7 +176,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-radius: 3px;
   margin-bottom: 2;
   background-color: gold;
   overflow: hidden;
@@ -161,7 +183,7 @@ body {
 
 .aside__avatar {
   height: 300px;
-  width: 100%;
+  width: 92%;
   background-color: black;
   transform: skew(0, 160deg);
   position: relative;
@@ -178,36 +200,31 @@ body {
 }
 
 .logOut {
-  width: 100%;
+  width: 92%;
   height: 100px;
   background-color: black;
   transform: skew(0, -20deg);
   position: relative;
-  top: 135px;
-  padding: 75px 0 0 50px;
   transition: 0.5s;
 }
 
 .logOut__btn {
-  color: white;
+  color: gold;
   font-size: 30px;
-  display: none;
+  display: flex;
   transition: 0.5s;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.logOut:hover {
-  top: 55px;
+.logOut__btn:hover {
+  color: white;
 }
 
-.logOut:hover .logOut__btn {
-  display: initial;
-}
-
-.logOut:hover p {
+.logOut p {
   position: relative;
-  top: -30px;
-  left: 25px;
   font-weight: bolder;
 }
 
@@ -311,8 +328,7 @@ body {
   outline: none;
   padding: 15px;
   width: 170px;
-  border-radius: 4px;
-  background-color: #222;
+  background-color: black;
   color: whitesmoke;
   font-size: 20px;
   box-sizing: border-box;

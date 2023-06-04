@@ -26,10 +26,6 @@ const gridContainer = document.getElementById("gridContainer");
 const lookFor = document.querySelectorAll(".buscar");
 const saludo = document.getElementById("titulo");
 
-const absolute = document.getElementById("absolute");
-
-let cards = [];
-
 let valorAvatar = null;
 
 registerAvatar.forEach((elemento) => {
@@ -93,6 +89,16 @@ function sumarUsuarios() {
       valorAvatar
     )
   );
+  Swal.fire({
+    icon: "success",
+    title: "Registro exitoso!",
+    color: "whitesmoke",
+    showConfirmButton: false,
+    timer: 1500,
+    background: "black",
+    iconColor: "gold",
+    confirmButtonColor: "gold",
+  });
 }
 
 send.addEventListener("click", (e) => {
@@ -101,10 +107,19 @@ send.addEventListener("click", (e) => {
     !registerName.value ||
     !registerSurname.value ||
     !registerMail.value ||
-    !registerPassword ||
+    !registerPassword.value ||
     valorAvatar == null
   ) {
-    alert("llene todos los campos");
+    Swal.fire({
+      icon: "warning",
+      title: "llene todos los campos",
+      color: "whitesmoke",
+      showConfirmButton: false,
+      timer: 2500,
+      background: "black",
+      iconColor: "gold",
+      confirmButtonColor: "gold",
+    });
   } else {
     sumarUsuarios();
   }
@@ -140,7 +155,16 @@ btnLogin.addEventListener("click", (e) => {
   e.preventDefault();
 
   if (!usernameInput.value || !passwordInput.value) {
-    alert("todos los campos son requeridos");
+    Swal.fire({
+      icon: "warning",
+      title: "todos los campos son requeridos",
+      color: "whitesmoke",
+      showConfirmButton: false,
+      timer: 2500,
+      background: "black",
+      iconColor: "gold",
+      confirmButtonColor: "gold",
+    });
   } else {
     let data = validarUsuario(
       usuariosDB,
@@ -149,7 +173,16 @@ btnLogin.addEventListener("click", (e) => {
     );
 
     if (!data) {
-      alert("usuario o contraseña erróneos");
+      Swal.fire({
+        icon: "error",
+        title: "mail o contraseña erroneos",
+        color: "whitesmoke",
+        showConfirmButton: false,
+        timer: 2500,
+        background: "black",
+        iconColor: "red",
+        confirmButtonColor: "gold",
+      });
     } else {
       if (rememberMe.checked) {
         guardarDatos(data, localStorage);
@@ -188,7 +221,15 @@ function saludar(usuario) {
 
 logOut.addEventListener("click", () => {
   borrarDatos();
-  alert("se han borrado los datos");
+  Swal.fire({
+    title: "Adios",
+    color: "whitesmoke",
+    showConfirmButton: false,
+    timer: 1500,
+    background: "black",
+    iconColor: "gold",
+    confirmButtonColor: "gold",
+  });
   cambiarEstado(container1, container2);
 });
 
@@ -211,7 +252,7 @@ traerPeliculas();
 function portadasGrid(array, container) {
   container.innerHTML = "";
   for (item of array) {
-    var tarjeta = document.createElement("div");
+    let tarjeta = document.createElement("div");
     tarjeta.className = "card";
     tarjeta.name = item.nombre;
     tarjeta.src = item.portada;
@@ -223,20 +264,21 @@ function portadasGrid(array, container) {
     </div>`;
     container.append(tarjeta);
   }
+
   const cards = document.querySelectorAll(".card");
-  const cardsArray = Array.apply(null, cards);
-  console.log(cardsArray);
 
   for (const item of cards) {
     item.addEventListener("click", () => {
-      console.log(item.id);
       let poster = item.id;
-      console.log(poster);
+
       let infoTarjeta = listaPeliculas.find(
         (elemento) => elemento.portada == poster
       );
-
-      container2.innerHTML += `<div id="absolute" class="absolute">
+      console.log(infoTarjeta.nombre);
+      let cartaInfo = document.createElement("div");
+      cartaInfo.className = "absolute";
+      cartaInfo.id = "absolute";
+      cartaInfo.innerHTML = `
       <div class="inAbsolute">
         <img class="absolute__image" src="${infoTarjeta.portada}" alt="" />
         <div class="inAbsolute2">
@@ -247,38 +289,18 @@ function portadasGrid(array, container) {
             Omnis sequi reiciendis fuga placeat, pariatur odio quae nesciunt
             optio sint cumque!
           </p>
+          <h2>${infoTarjeta.genero}</h2>
         </div>
-      </div>
     </div>`;
-      console.log(infoTarjeta);
+      container2.append(cartaInfo);
+
       const absolute = document.getElementById("absolute");
+
       absolute.addEventListener("click", () => {
-        alert("hola");
+        container2.removeChild(absolute);
       });
     });
   }
-
-  /*;*/
-
-  /*cards.forEach((tarjeta) => {
-    tarjeta.addEventListener("click", () => {
-      console.log(`hola ${tarjeta.name}`);
-      container2.innerHTML += `<div id="absolute" class="absolute">
-      <div class="inAbsolute">
-        <img class="absolute__image" src="${item.portada}" alt="" />
-        <div class="inAbsolute2">
-          <h3 class="absoluter__h3">${item.nombre}</h3>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-            maxime quaerat cupiditate tenetur culpa iusto repellat unde odit.
-            Omnis sequi reiciendis fuga placeat, pariatur odio quae nesciunt
-            optio sint cumque!
-          </p>
-        </div>
-      </div>
-    </div>`;
-    });
-  });*/
 }
 
 /////////Funcion para buscar/////////
