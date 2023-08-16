@@ -51,6 +51,9 @@ body {
   font-size: 40px;
   text-align: center;
 }
+.movie--h2{
+  margin-top: 20px;
+}
 
 .container p {
   color: gold;
@@ -90,6 +93,9 @@ body {
   font-size: 20px;
   margin: 5px;
 }
+.ingreso--datos{
+  margin-bottom: 25px;
+}
 
 .cancelsend {
   width: 506px;
@@ -108,7 +114,9 @@ body {
 .button:hover {
   background-color: #333;
 }
-
+.container__avatars{
+  text-align: center;
+}
 .container__avatars1 {
   height: 120px;
   background-color: black;
@@ -120,7 +128,9 @@ body {
   margin: 5px;
 }
 
+
 .container__avatars1 h3 {
+  text-align: center;
   color: #555;
 }
 
@@ -146,10 +156,22 @@ body {
 }
 
 .button--send {
+ 
   display: flex;
   justify-content: space-between;
 }
 
+.form__check{
+  width: 400px;
+  height: 50px;
+  background: red;
+  z-index: 400;
+  right: 25px;
+  
+}
+.form__check:hover{
+  background: blue;
+}
 /*/////////CONTAINER2////////////*/
 
 .container2 {

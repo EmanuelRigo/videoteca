@@ -17,7 +17,7 @@
       <div id="container1" class="container1">
         <div class="container" id="container">
           <div class="container__name">
-            <h2>My Movie V2.2</h2>
+            <h2 class="movie--h2">My Movie V2.0</h2>
             <p>Lorem ipsum dolor sit.</p>
           </div>
           <div class="container__login" id="containerLogin">
@@ -34,13 +34,15 @@
                 id="passwordInput"
                 placeholder="password"
               />
-              <button class="button button--send" id="btnLogin">
+              
+              <button class="button  button--send" id="btnLogin">
                 <span>Log In</span>
+                <div class="form__check">
+                  <label for="rememberme">Recuerdame</label>
+                  <input type="checkbox" name="rememberme" id="rememberme" />
+                </div>
               </button>
-              <div class="form__check">
-                <label for="rememberme">Recuerdame</label>
-                <input type="checkbox" name="rememberme" id="rememberme" />
-              </div>
+
             </form>
             <button class="button" id="register">
               <p>registrarme</p>
@@ -49,7 +51,7 @@
           </div>
 
           <div class="container__login disabled" id="containerRegister">
-            <p>Ingresa tus datos</p>
+            <p class="ingreso--datos">Ingresa tus datos</p>
             <form name="form" class="form">
               <input
                 type="text"
@@ -77,7 +79,7 @@
               />
 
               <div class="container__avatars1">
-                <h3>selecciona tu avatar</h3>
+                <h3>Selecciona tu avatar</h3>
                 <div class="container__avatars">
                   <div id="bat" class="avatar--img">
                     <img class="avatar--register" src="avatars/bat.png" />
