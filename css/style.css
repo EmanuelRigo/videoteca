@@ -269,6 +269,7 @@ body {
 .container2__h3 {
   color: gold;
   font-size: 40px;
+  text-transform: capitalize;
   margin: 30px 10px 0 10px;
   top: 10px;
 }
@@ -313,6 +314,7 @@ body {
   height: 150px;
   width: 100%;
   padding: 15px;
+  text-transform: capitalize;
   box-sizing: border-box;
   position: relative;
   top: -95px;
