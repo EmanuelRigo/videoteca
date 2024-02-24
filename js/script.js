@@ -5,6 +5,10 @@ const btnLogin = document.getElementById("btnLogin");
 const rememberMe = document.getElementById("rememberme");
 const containerLogin = document.getElementById("containerLogin");
 
+// responsil
+const ordenarRes = document.getElementById("ordenar-res");
+const infoRes = document.getElementById("info-res");
+// fin del responsil
 const registerContainer = document.getElementById("containerRegister");
 const registerName = document.getElementById("registerName");
 const registerSurname = document.getElementById("registerSurname");
@@ -25,6 +29,16 @@ const aside = document.getElementById("aside");
 const gridContainer = document.getElementById("gridContainer");
 const lookFor = document.querySelectorAll(".buscar");
 const saludo = document.getElementById("titulo");
+
+const pclose = document.getElementById("close");
+const conSettings = document.getElementById("settings");
+const logOutRes = document.getElementById("logOut-res");
+const navMovie = document.getElementById("nav");
+const infoResp = document.getElementById("info-res");
+const parrafoInfo = document.getElementById("p__info");
+const menu = document.getElementById("menu__res");
+const nuevoDiv = document.getElementById("ul_res");
+const bodyS = document.getElementById("secondBody");
 
 let valorAvatar = null;
 
@@ -50,6 +64,10 @@ cancelRegister.addEventListener("click", () => {
 
 btnSettings.addEventListener("click", () => {
   container2Settings.classList.toggle("disabled");
+});
+
+pclose.addEventListener("click", () => {
+  cambiarEstado(conSettings, container2Settings);
 });
 
 class Usuario {
@@ -122,6 +140,7 @@ send.addEventListener("click", (e) => {
     });
   } else {
     sumarUsuarios();
+    cambiarEstado(container1, container2);
   }
 });
 
@@ -187,6 +206,7 @@ btnLogin.addEventListener("click", (e) => {
       if (rememberMe.checked) {
         guardarDatos(data, localStorage);
         cambiarEstado(container1, container2);
+
         saludar(recuperarUsuario(localStorage));
       } else {
         guardarDatos(data, sessionStorage);

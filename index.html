@@ -13,7 +13,7 @@
     <title>Videoteca</title>
   </head>
   <body>
-    <div class="secondBody">
+    <div class="secondBody" id="secondBody">
       <div id="container1" class="container1">
         <div class="container" id="container">
           <div class="container__name">
@@ -34,15 +34,17 @@
                 id="passwordInput"
                 placeholder="password"
               />
-              
+
               <div class="button-container">
-                <button class="button  button--send" id="btnLogin">Log In</button>
+                <button class="button button--send" id="btnLogin">
+                  Log In
+                </button>
                 <div class="form__check">
-                  <label for="rememberme">Recuerdame</label>
+                  <p class="recuerdame">Recuerdame</p>
                   <input type="checkbox" name="rememberme" id="rememberme" />
+                  <label class="lbl-switch" for="rememberme"></label>
                 </div>
               </div>
-
             </form>
             <button class="button" id="register">
               <p>registrarme</p>
@@ -55,25 +57,25 @@
             <form name="form" class="form">
               <input
                 type="text"
-                class="form__input"
+                class="form__input registro__input"
                 id="registerName"
                 placeholder="Ingresa tu nombre"
               />
               <input
                 type="text"
-                class="form__input"
+                class="form__input registro__input"
                 id="registerSurname"
                 placeholder="Ingresa tu apellido"
               />
               <input
                 type="email"
-                class="form__input"
+                class="form__input registro__input"
                 id="registerMail"
                 placeholder="Ingresa tu mail"
               />
               <input
                 type="password"
-                class="form__input"
+                class="form__input registro__input"
                 id="registerPassword"
                 placeholder="Ingresa tu contraseña"
               />
@@ -116,10 +118,24 @@
 
       <div id="container2" class="container2 disabled">
         <div id="container2Settings" class="container2__settings disabled">
-          <div class="settings">
-            <span class="material-symbols-outlined"> close </span>
-            <p>Elije un color</p>
-            <div class="settings_colors" value="red"></div>
+          <div id="settings" class="settings">
+            <span id="close" class="material-symbols-outlined"> close </span>
+            <p id="p__info" class="p__info">
+              Hemos creado esta página web dedicada al cine, donde se brindan
+              datos y descripciones de algunas de nuestras películas favoritas.
+              <br />
+              Esta destinada a todos aquellos que tenemos una pasión en común
+              por el séptimo arte. <br />
+              Esta plataforma refleja su amor por el cine, creando un espacio
+              para que los aficionados puedan explorar y disfrutar. <br />Te
+              brinda buscar películas por genero, año y nombre
+              <br />
+              <br />
+              Te a pasado de no saber que pelicula ver ese sabado por la noche
+              tan especial?<br />
+              Te podemos orientar un poco que pelicula podes ver.... solo
+              encargate de pedir el delivery para que llege a tiempo.
+            </p>
           </div>
         </div>
 
