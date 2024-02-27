@@ -18,8 +18,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: scroll;
-  /* overflow-x: hidden; */
 }
 
 .container {
@@ -31,7 +29,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   border-radius: 7px;
-  margin-top: 50px;
   flex-direction: column;
   box-sizing: border-box;
 }
@@ -561,16 +558,18 @@ li a:hover {
 }
 /* fin del checkboox */
 
-.disabled {
-  display: none;
-}
-
 @media (max-width: 800px) {
   .secondBody {
     width: 100%;
   }
+
+  .container1 {
+    height: 100%;
+  }
+
   .container {
     width: 100%;
+    height: 100%;
     margin: 0;
   }
   .form {
@@ -1049,4 +1048,8 @@ li a:hover {
     position: relative;
     top: 30px;
   } */
+}
+
+.disabled {
+  display: none;
 }
