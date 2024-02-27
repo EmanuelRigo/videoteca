@@ -7,6 +7,9 @@
 
 body {
   font-family: "Raleway", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
 }
 /* ///////secondBody/////// */
 .secondBody {
@@ -182,8 +185,8 @@ body {
 /*/////////CONTAINER2////////////*/
 
 .container2 {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
 }
@@ -554,7 +557,7 @@ li a:hover {
 }
 .recuerdame {
   font-size: 14px !important;
-  margin: 15px;
+  margin: 20px;
 }
 /* fin del checkboox */
 
@@ -564,16 +567,8 @@ li a:hover {
 
 @media (max-width: 800px) {
   .secondBody {
-    /* background: black; */
-    /* height: 100%; */
     width: 100%;
   }
-  /* @media (max-width: 550px) { */
-  /* body {
-    height: 100%;
-    width: 100vw;
-  } */
-
   .container {
     width: 100%;
     margin: 0;
@@ -596,7 +591,54 @@ li a:hover {
   .recuerdame {
     margin: 5px;
   }
-  /* } */
+  .container2 {
+    flex-direction: column;
+  }
+  .container2__aside {
+    position: relative;
+    width: 100%;
+    height: 15%;
+  }
+  .container2__main {
+    width: 100%;
+    margin: 0;
+  }
+  .settings {
+    width: 650px;
+  }
+  /* .container2__aside {
+    width: 100vw;
+    height: 250px;
+  } */
+  /* .aside {
+    height: 100%;
+    flex-direction: row;
+  } */
+  /* .aside__avatar {
+    top: 0;
+    height: 100%;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: 0;
+    overflow: visible;
+  }
+  .aside__image {
+    transform: none;
+    height: 120px;
+  } */
+  /* .container2__h3 {
+    margin: 30px 10px;
+  } */
+  /* .container2__filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .container2__select {
+    width: 130px;
+  } */
 }
 @media (max-width: 450px) {
   .secondBody {

@@ -6,8 +6,8 @@ const rememberMe = document.getElementById("rememberme");
 const containerLogin = document.getElementById("containerLogin");
 
 // responsil
-const ordenarRes = document.getElementById("ordenar-res");
-const infoRes = document.getElementById("info-res");
+// const ordenarRes = document.getElementById("ordenar-res");
+// const infoRes = document.getElementById("info-res");
 // fin del responsil
 const registerContainer = document.getElementById("containerRegister");
 const registerName = document.getElementById("registerName");
@@ -224,8 +224,11 @@ function recuperarUsuario(storage) {
 
 function estaLogueado(usuario) {
   if (usuario) {
+    // window.location.href = "https://chat.openai.com/";
     cambiarEstado(container1, container2);
     saludar(recuperarUsuario(localStorage));
+  } else {
+    // window.location.href = "https://www.youtube.com/";
   }
 }
 
