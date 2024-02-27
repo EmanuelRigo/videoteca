@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="secondBody">
+      <div id="container2" class="container2">
+        <div id="container2Settings" class="container2__settings">
+          <div id="settings" class="settings">
+            <span id="close" class="material-symbols-outlined"> close </span>
+            <p id="p__info" class="p__info">
+              Hemos creado esta página web dedicada al cine, donde se brindan
+              datos y descripciones de algunas de nuestras películas favoritas.
+              <br />
+              Esta destinada a todos aquellos que tenemos una pasión en común
+              por el séptimo arte. <br />
+              Esta plataforma refleja su amor por el cine, creando un espacio
+              para que los aficionados puedan explorar y disfrutar. <br />Te
+              brinda buscar películas por genero, año y nombre
+              <br />
+              <br />
+              Te a pasado de no saber que pelicula ver ese sabado por la noche
+              tan especial?<br />
+              Te podemos orientar un poco que pelicula podes ver.... solo
+              encargate de pedir el delivery para que llege a tiempo.
+            </p>
+          </div>
+        </div>
+
+        <div class="container2__aside">
+          <aside id="aside" class="aside">
+            <div class="aside__avatar">
+              <img id="avatar" class="aside__image" src="avatars/cards.png" />
+
+              <div class="saludo">
+                <h3 class="container2__h3" id="titulo">Icono</h3>
+              </div>
+            </div>
+            <div class="container2__filter">
+              <select class="container2__select" name="" id="container2Select">
+                <option value="genero">Ordenar</option>
+                <option value="year">Año</option>
+                <option value="az">A-Z</option>
+              </select>
+
+              <input
+                id="nombre"
+                type="text"
+                class="container2__select buscar"
+                placeholder="Buscar por nombre"
+              />
+              <input
+                id="fecha"
+                type="text"
+                class="container2__select buscar"
+                placeholder="Buscar por año"
+              />
+              <input
+                id="genero"
+                type="text"
+                class="container2__select buscar"
+                placeholder="Buscar por genero"
+              />
+
+              <div class="logOut">
+                <div id="logOut" class="logOut__btn">
+                  <p>Log Out</p>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="container2__main">
+          <main class="main">
+            <div class="gridContainer" id="gridContainer"></div>
+            <div class="settingGear">
+              <a id="btnSettings" class="material-symbols-outlined">info</a>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
